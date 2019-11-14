@@ -9,6 +9,9 @@ TagManager:
   - Diced
   - Cut
   - Plate
+  - Carryable
+  - Container
+  - Unusable
   layers:
   - Default
   - TransparentFX

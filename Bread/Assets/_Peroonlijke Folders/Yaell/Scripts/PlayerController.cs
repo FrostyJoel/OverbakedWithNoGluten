@@ -6,11 +6,16 @@ namespace Yaell
 {
     public class PlayerController : MonoBehaviour
     {
-
+        #region Variables
         [Header("Resources")]
         public float horizontal;
         public float vertical;
         public float moveSpeed;
+
+        public RaycastHit hit;
+        public Camera firstPersonCam;
+
+        [Header("Settings")]
         public float runSpeed = 8f;
         public float walkSpeed = 5f;
 
@@ -19,14 +24,14 @@ namespace Yaell
         public Vector3 rotateX;
         public Vector3 rotateY;
 
-        public Camera firstPersonCam;
         public float sensitivityHorizontal = 10f;
         public float sensitivityVertical = 10f;
         public float maxAngle = 90f;
         public float minAngle = -40f;
+        public float range = 10f;
 
-        public RaycastHit hit;
-        public float range;
+        public bool isHoldingObject;
+        #endregion
 
         public void Start()
         {
@@ -38,6 +43,7 @@ namespace Yaell
         {
             Movement();
             Interaction();
+            ThrowingObject();
         }
 
         public void Movement()
@@ -47,7 +53,6 @@ namespace Yaell
             rotateX.x += Input.GetAxis("Mouse Y");
             rotateY.y += Input.GetAxis("Mouse X");
 
-            //  rotateY.y = Mathf.Clamp(rotateY.y, -60f, 60f);
             rotateX.x = Mathf.Clamp(rotateX.x, -50f, 50f);
 
             position.x = horizontal;
@@ -73,12 +78,37 @@ namespace Yaell
         public void Interaction()
         {
             if (Input.GetButtonDown("Interact"))
-            {
+            {               
                 if (Physics.Raycast(firstPersonCam.transform.position, firstPersonCam.transform.forward, out hit, range))
                 {
                     Debug.DrawRay(firstPersonCam.transform.position, firstPersonCam.transform.forward, Color.red, range);
                     Debug.Log(hit.transform.name);
+
+                    if (hit.transform.tag == "Carryable" || hit.transform.tag == "Unusable")
+                    {
+                        hit.transform.GetComponent<Pickup>().OnPickup();
+                    }
+
+                    if (hit.transform.tag == "Container")
+                    {
+                        hit.transform.GetComponent<Container>().OnContainerOpened();
+                    }
                 }
+                
+            }
+
+            if (Input.GetButtonUp("Interact"))
+            {
+                GameObject.Find("ParentHolder").GetComponentInChildren<Pickup>().OnDrop();               
+            }           
+        }
+
+        public void ThrowingObject()
+        {
+            if (Input.GetButtonDown("Throw"))
+            {
+                Debug.Log("Throwing?");
+                GameObject.Find("ParentHolder").GetComponentInChildren<Pickup>().OnThrow();
             }
         }
     }
