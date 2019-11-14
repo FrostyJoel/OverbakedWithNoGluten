@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cuttable
+  - Diceable
+  - Diced
+  - Cut
+  - Plate
   layers:
   - Default
   - TransparentFX
@@ -14,10 +18,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Diced
+  - Whole
+  - EndPoint
+  - Finished
   - 
   - 
   - 
