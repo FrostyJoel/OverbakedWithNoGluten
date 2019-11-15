@@ -10,6 +10,7 @@ namespace Yaell
         public Transform transformHand;
         public GameObject objectInHands;
         public RecipeBase baseRecipe;
+        public ItemBase dish;
 
         [Header("Settings")]
         public bool isPickedUp;
@@ -31,7 +32,7 @@ namespace Yaell
                         gameObject.tag = "Unusable";
                     }
                 }
-            }      
+            }
         public void OnPickup()
         {
             objectInHands = gameObject;

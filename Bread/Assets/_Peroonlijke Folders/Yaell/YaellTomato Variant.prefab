@@ -44,6 +44,7 @@ MonoBehaviour:
   transformHand: {fileID: 0}
   objectInHands: {fileID: 0}
   baseRecipe: {fileID: 11400000, guid: aa58acd8b87bda04db7db549f6e817e0, type: 2}
+  dish: {fileID: 11400000, guid: 8d0b3219bd1c34849956d0dad1fc2f93, type: 2}
   isPickedUp: 0
   objectVelocity: 5
   timer: 10

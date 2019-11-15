@@ -7,6 +7,7 @@ namespace Yaell {
     {
         [Header("Resources")]
         private Collision c;
+        private OrderManager orderManagerScript;
 
         [Header("Settings")]
         public RecipeBase endBaseRecipe;
@@ -16,7 +17,7 @@ namespace Yaell {
         {
             if (col.transform.tag == "Carryable")
             {
-                Invoke("Checker", 1f);
+                Invoke("Checker", 0.5f);
                 c = col;
             }
 
@@ -27,6 +28,7 @@ namespace Yaell {
         }
 
         //Wanneer tijd nul of lager is, kan je het niet meer gebruiken behalve weggooien.
+
         public void Checker()
         {
             if (c.transform.GetComponent<Pickup>().baseRecipe == endBaseRecipe && timer > 0)

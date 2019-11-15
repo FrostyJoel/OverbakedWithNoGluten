@@ -15,11 +15,14 @@ namespace Yaell {
         public string openContainer = "Open Container";
 
 
-        //Zoek een meer elegante oplossing om die transformhand te pakken.
+        //Zoek een meer elegante oplossing om die transform te pakken. Nu moet je persee de script in de scene zetten.
         public void Start()
         {
             t = script.transformHand;
         }
+
+        //Maak een empty GameObject in de Player aan genaamed "ParentHolder". De gespawnde object gebruikt deze coördinaten. 
+        // Moet nog wel dit transleren dat de input ook de spul pakt.
 
         public void OnContainerOpened()
         {
