@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class OrderSlot : MonoBehaviour
 {
-    public ItemBase orderData;
+    public RecipeBase orderData;
 
     public GameObject order;
     public Text orderName;
 
-    public void AddOrder(ItemBase newOrder)
+    public void AddOrder(RecipeBase newOrder)
     {
         orderData = newOrder;
         Debug.Log("Script: OrderSlot, Method: AddOrder, Log: Added Data to Slot.");

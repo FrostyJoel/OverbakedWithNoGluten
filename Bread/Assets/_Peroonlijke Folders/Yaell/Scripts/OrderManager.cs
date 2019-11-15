@@ -6,9 +6,10 @@ public class OrderManager : MonoBehaviour
 {
     #region Variables
     [Header("Resources")]
-    public List<ItemBase> orderList = new List<ItemBase>();
-    public List<ItemBase> RecipeList = new List<ItemBase>();
-    public ItemBase orderData;
+    public List<RecipeBase> orderList = new List<RecipeBase>();
+    public List<RecipeBase> RecipeList = new List<RecipeBase>();
+    public RecipeBase orderData;
+    AllRecipe recipes;
 
     [Header("Settings")]
     public int orderSlots = 6;
@@ -19,6 +20,7 @@ public class OrderManager : MonoBehaviour
     //Sets restart timer.
     public void Start()
     {
+        recipes = GetComponent<AllRecipe>();
         intervalRestart = interval;
     }
 
@@ -27,7 +29,7 @@ public class OrderManager : MonoBehaviour
         IntervalTimer();
     }
 
-    public void AddOrder(ItemBase orderData)
+    public void AddOrder(RecipeBase orderData)
     {
         if (orderList.Count >= orderSlots)
         {
@@ -40,7 +42,7 @@ public class OrderManager : MonoBehaviour
         Debug.Log("Script: OrderList, Method: AddOrder, Log: Data Added to order list");
     }
 
-    public void RemoveOrder(ItemBase orderData)
+    public void RemoveOrder(RecipeBase orderData)
     {
         orderList.Remove(orderData);
         Debug.Log("Script: OrderList, Method: RemoveOrder Log: Data removed from order list.");
@@ -56,6 +58,16 @@ public class OrderManager : MonoBehaviour
         else if(interval <= 0)
         {
             interval = intervalRestart;
+            int randomOrder = Random.Range(1, recipes.allRecipes.Count + 1);
+            Debug.Log(randomOrder);
+            for (int i = 0; i < recipes.allRecipes.Count; i++)
+            {
+                if (recipes.allRecipes[i].id == randomOrder)
+                {
+                    orderData = recipes.allRecipes[i];
+                    break;
+                }
+            }
             AddOrder(orderData);
             Debug.Log("Script: OrderList, Method: IntervalTimer, Log: Timer hit zero. Timer restart && added new order.");
         }

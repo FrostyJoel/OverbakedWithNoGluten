@@ -7,17 +7,33 @@ public class CheckTop : MonoBehaviour
     public float rad;
     public Transform child;
     public bool b;
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        Collider[] c = Physics.OverlapSphere(child.position, rad);
-        for (int i = 0; i < c.Length; i++)
+        if (!b)
         {
-            if(c[i].tag == "Diceable" || c[i].tag == "Cuttable")
+            if (other.tag == "Diceable" || other.tag == "Cuttable")
             {
-                c[i].GetComponent<Transform>().transform.position = child.position;
-                c[i].GetComponent<Transform>().transform.rotation = child.rotation;
+                b = true;
+                other.GetComponent<Transform>().transform.position = child.position;
+                other.GetComponent<Transform>().transform.rotation = child.rotation;
+                other.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             }
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Diceable" || other.tag == "Cuttable")
+        {
+            other.GetComponent<Transform>().transform.position = child.position;
+            other.GetComponent<Transform>().transform.rotation = child.rotation;
+            other.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Diceable" || other.tag == "Cuttable")
+        {
+            b = false;
         }
     }
     private void OnDrawGizmosSelected()

@@ -7,4 +7,5 @@ public class RecipeBase : ScriptableObject
 {
     public List<ItemBase> recipe = new List<ItemBase>();
     public FinishedItemBase finalProduct;
+    public int id;
 }

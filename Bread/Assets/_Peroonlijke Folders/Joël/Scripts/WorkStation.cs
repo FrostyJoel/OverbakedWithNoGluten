@@ -18,7 +18,7 @@ public class WorkStation : MonoBehaviour
 
     public void CheckRecipe()
     {
-        foreach (RecipeBase recipe in receptManager.stoveRecipe)
+        foreach (RecipeBase recipe in receptManager.allRecipes)
         {
             if(inStation.Count == recipe.recipe.Count)
             {
@@ -53,7 +53,8 @@ public class WorkStation : MonoBehaviour
         }
         if(cooking || finished)
         {
-            point.SetActive(false);
+            point.GetComponent<Collider>().enabled = false;
+            point.GetComponent<Renderer>().enabled = true;
         }
         if (cooking && currentTime <= 0)
         {
@@ -63,7 +64,8 @@ public class WorkStation : MonoBehaviour
             finished = false;
             availableRecipe = null;
             cooking = false;
-            point.SetActive(true);
+            point.GetComponent<Collider>().enabled = true;
+            point.GetComponent<Renderer>().enabled = false;
         }
     }
     
