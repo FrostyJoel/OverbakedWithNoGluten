@@ -11,7 +11,7 @@ public class InsertPoint : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Diced" || other.gameObject.tag == "Cut")
+        if (other.gameObject.tag == "Ingriedients")
         {
             parentWorkstation.inStation.Add(other.GetComponent<Item>().currentItem);
             parentWorkstation.CheckRecipe();

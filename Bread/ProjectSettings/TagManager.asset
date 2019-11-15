@@ -6,12 +6,11 @@ TagManager:
   tags:
   - Cuttable
   - Diceable
-  - Diced
-  - Cut
   - Plate
   - Carryable
   - Container
   - Unusable
+  - Ingriedients
   layers:
   - Default
   - TransparentFX

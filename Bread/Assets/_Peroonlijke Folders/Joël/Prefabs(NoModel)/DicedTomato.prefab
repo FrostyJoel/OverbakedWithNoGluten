@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 1410617404}
   - component: {fileID: 3120012516618647662}
   m_Layer: 9
-  m_Name: WholeTomato
-  m_TagString: Diced
+  m_Name: DicedTomato
+  m_TagString: Ingriedient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

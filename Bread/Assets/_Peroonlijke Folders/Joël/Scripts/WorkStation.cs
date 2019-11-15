@@ -13,6 +13,7 @@ public class WorkStation : MonoBehaviour
     public bool finished;
     public float cookingTime;
     public float offset;
+    RaycastHit hit;
     [SerializeField]float currentTime;
 
     public void CheckRecipe()
@@ -65,4 +66,5 @@ public class WorkStation : MonoBehaviour
             point.SetActive(true);
         }
     }
+    
 }

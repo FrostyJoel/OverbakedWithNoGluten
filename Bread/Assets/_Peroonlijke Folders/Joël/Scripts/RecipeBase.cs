@@ -6,5 +6,5 @@ using UnityEngine;
 public class RecipeBase : ScriptableObject
 {
     public List<ItemBase> recipe = new List<ItemBase>();
-    public ItemBase finalProduct;
+    public FinishedItemBase finalProduct;
 }
