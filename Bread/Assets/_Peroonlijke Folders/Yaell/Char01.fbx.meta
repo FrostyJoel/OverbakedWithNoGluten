@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 8af7dc65e0bcb854995e854902a1c006
+ModelImporter:
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      74: -3940031873545852154
+    second: Armature|Circle.001Action
+  - first:
+      74: 6927502509116007319
+    second: Armature|Circle.001Action.001
+  - first:
+      74: -6064431354851601757
+    second: Armature|Circle.001Action.002
+  - first:
+      74: 9158359047924034546
+    second: Armature|CircleAction.000
+  - first:
+      74: 7126720576498505062
+    second: Armature|CircleAction.001
+  - first:
+      74: -8365598972114915423
+    second: Armature|CircleAction.002
+  - first:
+      74: -1559071518392153964
+    second: Armature|Cube.001Action
+  - first:
+      74: 5922712533297259479
+    second: Armature|Cube.001Action.001
+  - first:
+      74: 7190651497361647703
+    second: Armature|Cube.001Action.002
+  - first:
+      74: 4828028426687900610
+    second: Armature|Cube.002Action
+  - first:
+      74: 5449073193131188545
+    second: Armature|CubeAction
+  - first:
+      74: 783080663221867442
+    second: Armature|CubeAction.001
+  - first:
+      74: 6755636440131579798
+    second: Armature|CubeAction.002
+  - first:
+      74: 7705805807172298677
+    second: Armature|Cylinder.001Action
+  - first:
+      74: 869159650748348071
+    second: Armature|Cylinder.001Action.001
+  - first:
+      74: 4320895352568986341
+    second: Armature|Cylinder.001Action.002
+  - first:
+      74: 2780707814703152478
+    second: Armature|Cylinder.001Action.003
+  - first:
+      74: 271997525282036724
+    second: Armature|CylinderAction
+  - first:
+      74: 8829658961672180167
+    second: Armature|IdleAnim
+  - first:
+      74: -2382795055912782974
+    second: Armature|Plane.001Action
+  - first:
+      74: 2920023865792766560
+    second: Armature|PlaneAction
+  - first:
+      74: -8009926038602796708
+    second: Armature|RetopoHighTopoAction
+  - first:
+      74: 3066906935274928755
+    second: Armature|Sphere.004Action
+  - first:
+      74: 4387366787747017456
+    second: Armature|Sphere.004Action.001
+  - first:
+      74: -3637537894963116139
+    second: Armature|Sphere.004Action.002
+  - first:
+      74: -7723293457293065638
+    second: Armature|Sphere.005Action
+  - first:
+      74: -1732122426704624343
+    second: Armature|Sphere.005Action.001
+  - first:
+      74: 5775282362457078302
+    second: Armature|Sphere.005Action.002
+  - first:
+      74: -6788291789069941537
+    second: Armature|SphereAction
+  - first:
+      74: 1599356377470273256
+    second: Armature|SphereAction.001
+  - first:
+      74: -1883150853644995191
+    second: Armature|SphereAction.002
+  - first:
+      74: 7838798483450627966
+    second: Armature|SphereAction.003
+  - first:
+      74: 840005603809075384
+    second: Armature|SphereAction.004
+  - first:
+      74: -4825216642824821694
+    second: Armature|SphereAction.005
+  - first:
+      74: -869978269832519881
+    second: Armature|SphereAction.006
+  - first:
+      74: -8475499637696500558
+    second: Armature|SphereAction.007
+  - first:
+      74: -895535295031493829
+    second: Armature|SphereAction.008
+  - first:
+      74: -880790574851206081
+    second: Armature|Stereo textured meshAction
+  - first:
+      74: 2517152770028793317
+    second: Armature|WalkCycle
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

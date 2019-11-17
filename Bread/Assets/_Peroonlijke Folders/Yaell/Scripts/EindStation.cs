@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yaell;
 
-namespace Yaell {
     public class EindStation : MonoBehaviour
     {
         [Header("Resources")]
@@ -11,14 +11,16 @@ namespace Yaell {
 
         [Header("Settings")]
         public RecipeBase endBaseRecipe;
-        public float timer;
+    public float timeStamp;
+
 
         public void OnCollisionEnter(Collision col)
         {
             if (col.transform.tag == "Carryable")
             {
                 Invoke("Checker", 0.5f);
-                c = col;
+            c = col;
+            
             }
 
             else if(col.transform.tag == "Unusable")
@@ -43,4 +45,4 @@ namespace Yaell {
             }
         }
     }
-}
+

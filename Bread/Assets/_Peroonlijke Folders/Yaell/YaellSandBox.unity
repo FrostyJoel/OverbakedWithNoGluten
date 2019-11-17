@@ -349,10 +349,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderList: []
-  RecipeList: []
+  RecipeList:
+  - {fileID: 11400000, guid: caeace4a623814d42871553998ff6993, type: 2}
   orderData: {fileID: 11400000, guid: 8d0b3219bd1c34849956d0dad1fc2f93, type: 2}
   orderSlots: 6
-  interval: 1
+  interval: 10
   intervalRestart: 0
 --- !u!4 &1315097843
 Transform:

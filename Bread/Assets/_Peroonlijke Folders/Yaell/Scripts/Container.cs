@@ -25,8 +25,7 @@ namespace Yaell {
         // Moet nog wel dit transleren dat de input ook de spul pakt.
 
         public void OnContainerOpened()
-        {
-            
+        {         
             GameObject newingriedient = Instantiate(ingredientInContainer, t.position, t.rotation);
             newingriedient.GetComponent<Rigidbody>().useGravity = false;
             newingriedient.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
