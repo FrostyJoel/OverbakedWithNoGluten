@@ -3,46 +3,63 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yaell;
 
-    public class EindStation : MonoBehaviour
-    {
-        [Header("Resources")]
-        private Collision c;
-        private OrderManager orderManagerScript;
+public class EindStation : MonoBehaviour
+{
+    [Header("Resources")]
+    private Collision c;
+    private OrderManager orderManagerScript;
+    public GameObject scoreManagerHolder;
 
-        [Header("Settings")]
-        public RecipeBase endBaseRecipe;
+    [Header("Settings")]
+    public RecipeBase endBaseRecipe;
     public float timeStamp;
+    public bool isOnTime;
+    public bool isAnOrder;
 
+    public void Start()
+    {
+        scoreManagerHolder = GameObject.Find("ScoreManager");
+    }
 
-        public void OnCollisionEnter(Collision col)
+    public void OnCollisionEnter(Collision col)
+    {
+        if (col.transform.tag == "Carryable")
         {
-            if (col.transform.tag == "Carryable")
-            {
-                Invoke("Checker", 0.5f);
+            Invoke("Checker", 0.5f);
             c = col;
-            
-            }
-
-            else if(col.transform.tag == "Unusable")
-            {
-                //Display een popup ofzo iets.
-            }
         }
 
-        //Wanneer tijd nul of lager is, kan je het niet meer gebruiken behalve weggooien.
-
-        public void Checker()
+        else if (col.transform.tag == "Unusable")
         {
-            if (c.transform.GetComponent<Pickup>().baseRecipe == endBaseRecipe && timer > 0)
-            {
-                Destroy(c.gameObject);
-                //Addscore
-            }
-
-            else
-            {
-                // Display iets of doe iets.
-            }
+            //Display "Sorry, this one is not needed!"
         }
     }
+
+    //Wanneer tijd nul of lager is, kan je het niet meer gebruiken behalve weggooien.
+    public void Checker()
+    {
+        isOnTime = c.transform.GetComponent<Pickup>().baseRecipe.isOnTime;
+        isAnOrder = c.transform.GetComponent<Pickup>().baseRecipe.isAnOrder;
+
+        if (isOnTime && isAnOrder)
+        {
+            Destroy(c.gameObject);
+            scoreManagerHolder.GetComponent<ScoreManager>().AddScore();
+        }
+
+        else if (isOnTime == false && isAnOrder == true)
+        {
+            c.transform.tag = "Unusable";
+            scoreManagerHolder.GetComponent<ScoreManager>().Penalty();
+            //Display "Sorry you weren't on time!"
+        }
+
+        else if (isOnTime == true && isAnOrder == false)
+        {
+            c.transform.tag = "unusable";   
+            scoreManagerHolder.GetComponent<ScoreManager>().Penalty();
+            //Display "Sorry, it's not for an order!"
+        }
+    }
+}
 

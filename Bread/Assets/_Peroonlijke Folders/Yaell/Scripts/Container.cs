@@ -14,7 +14,6 @@ namespace Yaell {
         [Header("Settings")]
         public string openContainer = "Open Container";
 
-
         //Zoek een meer elegante oplossing om die transform te pakken. Nu moet je persee de script in de scene zetten.
         public void Start()
         {

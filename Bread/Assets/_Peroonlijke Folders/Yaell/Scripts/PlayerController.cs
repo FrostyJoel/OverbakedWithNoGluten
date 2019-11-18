@@ -78,7 +78,7 @@ namespace Yaell
         public void Interaction()
         {
             if (Input.GetButtonDown("Interact"))
-            {               
+            {
                 if (Physics.Raycast(firstPersonCam.transform.position, firstPersonCam.transform.forward, out hit, range))
                 {
                     Debug.DrawRay(firstPersonCam.transform.position, firstPersonCam.transform.forward, Color.red, range);
@@ -94,13 +94,13 @@ namespace Yaell
                         hit.transform.GetComponent<Container>().OnContainerOpened();
                     }
                 }
-                
+
             }
 
             if (Input.GetButtonUp("Interact"))
             {
-                GameObject.Find("ParentHolder").GetComponentInChildren<Pickup>().OnDrop();               
-            }           
+                GameObject.Find("ParentHolder").GetComponentInChildren<Pickup>().OnDrop();
+            }
         }
 
         public void ThrowingObject()

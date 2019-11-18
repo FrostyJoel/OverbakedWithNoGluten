@@ -8,12 +8,22 @@ public class OrderManager : MonoBehaviour
     [Header("Resources")]
     public List<RecipeBase> orderList = new List<RecipeBase>();
     public List<RecipeBase> RecipeList = new List<RecipeBase>();
+    //public List<WorkingTimer> orderTimerList = new List<WorkingTimer>();
+
+    //Testen lijst voor timers per order.
+    public List<WorkingTimer> timers = new List<WorkingTimer>();
+    public List<float> test = new List<float>();
+    public List<int> timerIndex = new List<int>();
+
+    public float test2 = 12f;
+
     public RecipeBase orderData;
+    public WorkingTimer orderTimer;
     AllRecipe recipes;
 
     [Header("Settings")]
     public int orderSlots = 6;
-    public float interval = 10f;
+    public float interval = 1f;
     public float intervalRestart;
     #endregion
 
@@ -27,6 +37,8 @@ public class OrderManager : MonoBehaviour
     public void Update()
     {
         IntervalTimer();
+
+        
     }
 
     public void AddOrder(RecipeBase orderData)
@@ -34,11 +46,17 @@ public class OrderManager : MonoBehaviour
         if (orderList.Count >= orderSlots)
         {
             Debug.Log("Script: OrderList, Method: AddOrder, Log: Not enough room to add Data ");
+
             return;
             //put some visual and audio feedback in here as well later on.
         }
 
         orderList.Add(orderData);
+        orderData.isAnOrder = true;
+        orderData.isOnTime = true;
+
+        timers.Add(orderTimer);
+
         Debug.Log("Script: OrderList, Method: AddOrder, Log: Data Added to order list");
     }
 
@@ -55,7 +73,7 @@ public class OrderManager : MonoBehaviour
             interval -= Time.deltaTime;
         }
 
-        else if(interval <= 0)
+        else if (interval <= 0)
         {
             interval = intervalRestart;
             int randomOrder = Random.Range(1, recipes.allRecipes.Count + 1);
@@ -68,6 +86,7 @@ public class OrderManager : MonoBehaviour
                     break;
                 }
             }
+
             AddOrder(orderData);
             Debug.Log("Script: OrderList, Method: IntervalTimer, Log: Timer hit zero. Timer restart && added new order.");
         }
