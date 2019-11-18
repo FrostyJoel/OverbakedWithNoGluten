@@ -9,11 +9,6 @@ public class OrderManager : MonoBehaviour
     [Header("Resources")]
     public List<RecipeBase> orderList = new List<RecipeBase>();
     public List<RecipeBase> RecipeList = new List<RecipeBase>();
-    //public List<WorkingTimer> orderTimerList = new List<WorkingTimer>();
-
-    //Testen lijst voor timers per order.
-
-    //eind testgedeelte
 
     public RecipeBase orderData;
     public WorkingTimer orderTimer;
@@ -27,13 +22,16 @@ public class OrderManager : MonoBehaviour
     //test
     public float reset;
     public float order1;
+    public float order2;
 
     public bool orderOnePlaced;
+    public bool orderTwoPlaced;
 
+    public int two;
     public int one;
 
     public List<float> timers = new List<float>();
-
+    //eind test
     #endregion
 
     //Sets restart timer.
@@ -43,26 +41,13 @@ public class OrderManager : MonoBehaviour
         intervalRestart = interval;
 
         order1 = reset;
+        order2 = reset;
     }
 
     public void Update()
     {
         IntervalTimer();
-
-        //test
-        if (orderOnePlaced)
-        {
-            order1 -= Time.deltaTime;
-            if (order1 <= 0)
-            {
-                RemoveOrder(orderData);
-                orderOnePlaced = false;
-
-              //  order1 = reset;
-            }
-        }
-        //end test
-
+        OrderChecker();
     }
 
     public void AddOrder(RecipeBase orderData)
@@ -88,8 +73,9 @@ public class OrderManager : MonoBehaviour
             Debug.Log("First Order.");
         }
 
-        else if (orderList.ElementAtOrDefault(1) != null)
+        else if (orderList.ElementAtOrDefault(1) != null && orderList.Count == 2)
         {
+            orderTwoPlaced = true;
             Debug.Log("Second Order.");
         }
 
@@ -99,7 +85,7 @@ public class OrderManager : MonoBehaviour
 
     public void RemoveOrder(RecipeBase orderData)
     {
-        orderList.Remove(orderData);
+        orderList.RemoveAt(one);
         Debug.Log("Script: OrderList, Method: RemoveOrder Log: Data removed from order list.");
     }
 
@@ -131,7 +117,28 @@ public class OrderManager : MonoBehaviour
 
     public void OrderChecker()
     {
+        if (orderOnePlaced)
+        {
+            order1 -= Time.deltaTime;
 
+            if (order1 <= 0)
+            {
+                RemoveOrder(orderData);
+                orderOnePlaced = false;
+                order1 = reset;
+            }
+        }
+
+        if (orderTwoPlaced)
+        {
+            order2 -= Time.deltaTime;
+
+            if (order2 <= 0)
+            {
+                RemoveOrder(orderData);
+                orderTwoPlaced = false;
+                order2 = reset;
+            }
+        }
     }
-
 }
