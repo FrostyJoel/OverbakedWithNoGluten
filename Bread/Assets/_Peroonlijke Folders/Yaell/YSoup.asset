@@ -17,3 +17,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 85be84594af7dc54cb1bd25fbae93add, type: 2}
   - {fileID: 11400000, guid: 85be84594af7dc54cb1bd25fbae93add, type: 2}
   finalProduct: {fileID: 11400000, guid: 8d0b3219bd1c34849956d0dad1fc2f93, type: 2}
+  id: 0
+  isOnTime: 1
+  isAnOrder: 1
+  isSmall: 0
+  isMedium: 1
+  isBig: 0

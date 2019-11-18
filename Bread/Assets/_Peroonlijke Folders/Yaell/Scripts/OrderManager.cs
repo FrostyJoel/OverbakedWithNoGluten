@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class OrderManager : MonoBehaviour
 {
@@ -11,11 +12,8 @@ public class OrderManager : MonoBehaviour
     //public List<WorkingTimer> orderTimerList = new List<WorkingTimer>();
 
     //Testen lijst voor timers per order.
-    public List<WorkingTimer> timers = new List<WorkingTimer>();
-    public List<float> test = new List<float>();
-    public List<int> timerIndex = new List<int>();
 
-    public float test2 = 12f;
+    //eind testgedeelte
 
     public RecipeBase orderData;
     public WorkingTimer orderTimer;
@@ -25,6 +23,17 @@ public class OrderManager : MonoBehaviour
     public int orderSlots = 6;
     public float interval = 1f;
     public float intervalRestart;
+
+    //test
+    public float reset;
+    public float order1;
+
+    public bool orderOnePlaced;
+
+    public int one;
+
+    public List<float> timers = new List<float>();
+
     #endregion
 
     //Sets restart timer.
@@ -32,13 +41,28 @@ public class OrderManager : MonoBehaviour
     {
         recipes = GetComponent<AllRecipe>();
         intervalRestart = interval;
+
+        order1 = reset;
     }
 
     public void Update()
     {
         IntervalTimer();
 
-        
+        //test
+        if (orderOnePlaced)
+        {
+            order1 -= Time.deltaTime;
+            if (order1 <= 0)
+            {
+                RemoveOrder(orderData);
+                orderOnePlaced = false;
+
+              //  order1 = reset;
+            }
+        }
+        //end test
+
     }
 
     public void AddOrder(RecipeBase orderData)
@@ -55,8 +79,21 @@ public class OrderManager : MonoBehaviour
         orderData.isAnOrder = true;
         orderData.isOnTime = true;
 
-        timers.Add(orderTimer);
+        timers.Add(order1);
 
+        //test
+        if (orderList.ElementAtOrDefault(0) != null && orderList.Count == 1)
+        {
+            orderOnePlaced = true;
+            Debug.Log("First Order.");
+        }
+
+        else if (orderList.ElementAtOrDefault(1) != null)
+        {
+            Debug.Log("Second Order.");
+        }
+
+        //end test
         Debug.Log("Script: OrderList, Method: AddOrder, Log: Data Added to order list");
     }
 
@@ -91,4 +128,10 @@ public class OrderManager : MonoBehaviour
             Debug.Log("Script: OrderList, Method: IntervalTimer, Log: Timer hit zero. Timer restart && added new order.");
         }
     }
+
+    public void OrderChecker()
+    {
+
+    }
+
 }

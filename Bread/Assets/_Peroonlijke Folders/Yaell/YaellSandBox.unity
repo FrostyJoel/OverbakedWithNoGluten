@@ -212,6 +212,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &634875802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 634875804}
+  - component: {fileID: 634875803}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &634875803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634875802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba1a4fd50e00844698672969e12836a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipeBase: {fileID: 11400000, guid: aa58acd8b87bda04db7db549f6e817e0, type: 2}
+  currentScore: 0
+  penalty: -2
+  addedScore: 4
+  smallScore: 2
+  mediumScore: 5
+  bigScore: 8
+--- !u!4 &634875804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634875802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.75265265, y: -0.92867255, z: 1.1116228}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &648934160
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +277,7 @@ GameObject:
   - component: {fileID: 648934161}
   m_Layer: 0
   m_Name: EndStation
-  m_TagString: Container
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,8 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b31d077cf3812c4292b5b3ffb516e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManagerHolder: {fileID: 0}
   endBaseRecipe: {fileID: 11400000, guid: aa58acd8b87bda04db7db549f6e817e0, type: 2}
-  timer: 20
+  timeStamp: 0
+  isOnTime: 0
+  isAnOrder: 0
 --- !u!65 &648934162
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -329,8 +382,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1315097843}
   - component: {fileID: 1315097842}
+  - component: {fileID: 1315097844}
   m_Layer: 0
-  m_Name: Order Manager
+  m_Name: OrderManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -350,11 +404,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderList: []
   RecipeList:
-  - {fileID: 11400000, guid: caeace4a623814d42871553998ff6993, type: 2}
-  orderData: {fileID: 11400000, guid: 8d0b3219bd1c34849956d0dad1fc2f93, type: 2}
+  - {fileID: 11400000, guid: cc1db75df9a08b44886a56df57b088a1, type: 2}
+  orderData: {fileID: 11400000, guid: 8d20b2356f61b014686aa539471cc1c1, type: 2}
+  orderTimer: {fileID: 11400000, guid: b99b94270dc0db9418a16464b6fe4e82, type: 2}
   orderSlots: 6
   interval: 10
   intervalRestart: 0
+  reset: 12
+  order1: 0
+  orderOnePlaced: 0
+  one: 0
+  timers: []
 --- !u!4 &1315097843
 Transform:
   m_ObjectHideFlags: 0
@@ -369,6 +429,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1315097844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315097841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44bfd262b0426b0438de7b88a4d0c305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allRecipes: []
 --- !u!1 &1316160590
 GameObject:
   m_ObjectHideFlags: 0
