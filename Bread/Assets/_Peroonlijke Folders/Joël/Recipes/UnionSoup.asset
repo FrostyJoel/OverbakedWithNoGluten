@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06bbb21d0bcc1454abdd89cad7466951, type: 3}
   m_Name: UnionSoup
   m_EditorClassIdentifier: 
-  recipe: []
+  recipe:
+  - {fileID: 11400000, guid: e8a07572c110cbc4bb3abaed3319444a, type: 2}
+  - {fileID: 11400000, guid: e8a07572c110cbc4bb3abaed3319444a, type: 2}
+  - {fileID: 11400000, guid: e8a07572c110cbc4bb3abaed3319444a, type: 2}
   finalProduct: {fileID: 0}
-  id: 0
+  id: 2
   orderTime: 0
-  isOnTime: 1
-  isAnOrder: 1
-  isSmall: 0
-  isMedium: 0
-  isBig: 0

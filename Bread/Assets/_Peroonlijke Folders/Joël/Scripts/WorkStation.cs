@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WorkStation : MonoBehaviour
 {
@@ -13,35 +14,34 @@ public class WorkStation : MonoBehaviour
     public bool finished;
     public float cookingTime;
     public float offset;
+    public float force;
+    public Text stoveAmount;
     RaycastHit hit;
     [SerializeField]float currentTime;
 
     public void CheckRecipe()
     {
-        foreach (RecipeBase recipe in receptManager.allRecipes)
+        bool b = false;
+        for (int i = 0; i < inStation.Count; i++)
         {
-            if(inStation.Count == recipe.recipe.Count)
+            if(inStation[i].id == availableRecipe.recipe[i].id)
             {
-                bool b = false;
-                for (int i = 0; i < inStation.Count; i++)
-                {
-                    if(inStation[i] == recipe.recipe[i])
-                    {
-                        b = true;
-                    }
-                    else
-                    {
-                        b = false;
-                        break;
-                    }
-                }
-                if (b)
-                {
-                    availableRecipe = recipe;
-                    cooking = true;
-                    currentTime = cookingTime;
-                }
+                b = true;
             }
+            else
+            {
+                Debug.Log("O no");
+                Vector3 endPosition = new Vector3(finishedProduct.transform.position.x, finishedProduct.transform.position.y + offset, finishedProduct.transform.position.z);
+                GameObject wrongItem = Instantiate(inStation[i].item, endPosition, Quaternion.identity);
+                wrongItem.GetComponent<Rigidbody>().velocity += finishedProduct.transform.up * force;
+                inStation.Remove(inStation[i]);
+                break;
+            }
+        }
+        if (b && inStation.Count == availableRecipe.recipe.Count)
+        {
+            cooking = true;
+            currentTime = cookingTime;
         }
     }
 
@@ -62,11 +62,18 @@ public class WorkStation : MonoBehaviour
             Instantiate(availableRecipe.finalProduct.item,endPosition,Quaternion.identity);
             inStation.Clear();
             finished = false;
-            availableRecipe = null;
             cooking = false;
             point.GetComponent<Collider>().enabled = true;
             point.GetComponent<Renderer>().enabled = false;
         }
+        if(availableRecipe != null)
+        {
+            UpdateUI();
+        }
     }
-    
+
+    public void UpdateUI()
+    {
+        stoveAmount.text = inStation.Count.ToString() + "/" + availableRecipe.recipe.Count.ToString();
+    }
 }

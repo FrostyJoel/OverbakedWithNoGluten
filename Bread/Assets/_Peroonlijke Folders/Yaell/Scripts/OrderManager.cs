@@ -54,7 +54,7 @@ public class OrderManager : MonoBehaviour
         }
         orderList.Enqueue(orderData);
         Debug.Log(orderList.Count());
-        Debug.Log(orderList.Peek());
+        Debug.Log(orderList.Last());
         //Debug.Log("Script: OrderList, Method: AddOrder, Log: Data Added to order list");
     }
 

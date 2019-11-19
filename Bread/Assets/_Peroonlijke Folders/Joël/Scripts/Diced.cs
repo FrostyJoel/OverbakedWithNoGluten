@@ -16,7 +16,7 @@ public class Diced : MonoBehaviour
             foreach (GameObject slice in slices.GetComponent<Item>().slices)
             {
                 Vector3 randomScale = new Vector3(Random.Range(0.75f, 1.25f), Random.Range(0.75f, 1.25f), Random.Range(0.75f, 1.25f));
-                Vector3 randomEuler = new Vector3(Random.Range(0.5f, 1.5f), Random.Range(0.5f, 1.5f), Random.Range(0.5f, 1.5f));
+                Vector3 randomEuler = new Vector3(Random.Range(-0.07f, 0.07f), Random.Range(-0.07f, 0.07f), Random.Range(-0.07f, 0.07f));
                 slice.transform.localScale = randomScale;
                 slice.transform.Rotate(randomEuler);
             }
