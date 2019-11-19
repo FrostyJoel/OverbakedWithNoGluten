@@ -24,26 +24,6 @@ public class ScoreManager : MonoBehaviour
         currentScore = 0;
     }
 
-    public void AddScore()
-    {
-        if (recipeBase.isSmall)
-        {
-            addedScore = smallScore;
-        }
-
-        else if (recipeBase.isMedium)
-        {
-            addedScore = mediumScore;
-        }
-
-        else if (recipeBase.isBig)
-        {
-            addedScore = bigScore;
-        }
-
-        currentScore += addedScore;
-    }
-
     public void Penalty()
     {
         currentScore -= penalty;

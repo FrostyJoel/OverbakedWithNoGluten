@@ -20,7 +20,7 @@ public class UIUpdater : MonoBehaviour
         {
             if (i < orders.orderList.Count)
             {
-                slots[i].AddOrder(orders.orderList[i]);
+                //slots[i].AddOrder(orders.orderList.);
             }
 
             else

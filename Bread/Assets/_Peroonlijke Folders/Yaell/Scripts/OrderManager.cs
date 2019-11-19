@@ -7,11 +7,12 @@ public class OrderManager : MonoBehaviour
 {
     #region Variables
     [Header("Resources")]
-    public List<RecipeBase> orderList = new List<RecipeBase>();
-    public List<RecipeBase> RecipeList = new List<RecipeBase>();
+    public Queue<RecipeBase> orderList = new Queue<RecipeBase>();
+    //public List<RecipeBase> RecipeList = new List<RecipeBase>();
 
     public RecipeBase orderData;
     public WorkingTimer orderTimer;
+    public FinishedItemBase tempProduct;
     AllRecipe recipes;
 
     [Header("Settings")]
@@ -19,18 +20,11 @@ public class OrderManager : MonoBehaviour
     public float interval = 1f;
     public float intervalRestart;
 
+    public float maximumMinusTime;
     //test
     public float reset;
-    public float order1;
-    public float order2;
-
-    public bool orderOnePlaced;
-    public bool orderTwoPlaced;
-
-    public int two;
-    public int one;
-
-    public List<float> timers = new List<float>();
+    public float orderTime;
+    public float timer;
     //eind test
     #endregion
 
@@ -39,63 +33,44 @@ public class OrderManager : MonoBehaviour
     {
         recipes = GetComponent<AllRecipe>();
         intervalRestart = interval;
-
-        order1 = reset;
-        order2 = reset;
     }
 
     public void Update()
     {
         IntervalTimer();
-        OrderChecker();
+        if(orderList.Count > 0)
+        {
+            OrderChecker();
+        }
     }
 
     public void AddOrder(RecipeBase orderData)
     {
         if (orderList.Count >= orderSlots)
         {
-            Debug.Log("Script: OrderList, Method: AddOrder, Log: Not enough room to add Data ");
-
+            //Debug.Log("Script: OrderList, Method: AddOrder, Log: Not enough room to add Data ");
             return;
             //put some visual and audio feedback in here as well later on.
         }
-
-        orderList.Add(orderData);
-        orderData.isAnOrder = true;
-        orderData.isOnTime = true;
-
-        timers.Add(order1);
-
-        //test
-        if (orderList.ElementAtOrDefault(0) != null && orderList.Count == 1)
-        {
-            orderOnePlaced = true;
-            Debug.Log("First Order.");
-        }
-
-        else if (orderList.ElementAtOrDefault(1) != null && orderList.Count == 2)
-        {
-            orderTwoPlaced = true;
-            Debug.Log("Second Order.");
-        }
-
-        //end test
-        Debug.Log("Script: OrderList, Method: AddOrder, Log: Data Added to order list");
+        orderList.Enqueue(orderData);
+        Debug.Log(orderList.Count());
+        Debug.Log(orderList.Peek());
+        //Debug.Log("Script: OrderList, Method: AddOrder, Log: Data Added to order list");
     }
 
-    public void RemoveOrder(RecipeBase orderData)
+    public void RemoveOrder()
     {
-        orderList.RemoveAt(one);
-        Debug.Log("Script: OrderList, Method: RemoveOrder Log: Data removed from order list.");
+        Debug.Log("Correct Item");
+        orderList.Dequeue();
+        //Debug.Log("Script: OrderList, Method: RemoveOrder Log: Data removed from order list.");
     }
 
     public void IntervalTimer()
     {
-        if (interval > 0)
+        if (interval > 0 && orderList.Count < orderSlots)
         {
             interval -= Time.deltaTime;
         }
-
         else if (interval <= 0)
         {
             interval = intervalRestart;
@@ -109,36 +84,31 @@ public class OrderManager : MonoBehaviour
                     break;
                 }
             }
-
             AddOrder(orderData);
-            Debug.Log("Script: OrderList, Method: IntervalTimer, Log: Timer hit zero. Timer restart && added new order.");
+            //Debug.Log("Script: OrderList, Method: IntervalTimer, Log: Timer hit zero. Timer restart && added new order.");
         }
     }
 
     public void OrderChecker()
     {
-        if (orderOnePlaced)
+        if (orderList.Count > 0)
         {
-            order1 -= Time.deltaTime;
-
-            if (order1 <= 0)
+            if(timer > maximumMinusTime)
             {
-                RemoveOrder(orderData);
-                orderOnePlaced = false;
-                order1 = reset;
+                timer -= Time.deltaTime;
             }
         }
-
-        if (orderTwoPlaced)
+    }
+    public void TimeChecker()
+    {
+        if (timer > 0)
         {
-            order2 -= Time.deltaTime;
-
-            if (order2 <= 0)
-            {
-                RemoveOrder(orderData);
-                orderTwoPlaced = false;
-                order2 = reset;
-            }
+            //Add Score
         }
+        if (timer < 0)
+        {
+            //Remove points
+        }
+        RemoveOrder();
     }
 }

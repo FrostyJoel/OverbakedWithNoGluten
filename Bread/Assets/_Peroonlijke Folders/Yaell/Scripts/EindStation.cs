@@ -38,16 +38,7 @@ public class EindStation : MonoBehaviour
     //Wanneer tijd nul of lager is, kan je het niet meer gebruiken behalve weggooien.
     public void Checker()
     {
-        isOnTime = c.transform.GetComponent<Pickup>().baseRecipe.isOnTime;
-        isAnOrder = c.transform.GetComponent<Pickup>().baseRecipe.isAnOrder;
-
-        if (isOnTime && isAnOrder)
-        {
-            Destroy(c.gameObject);
-            scoreManagerHolder.GetComponent<ScoreManager>().AddScore();
-        }
-
-        else if (isOnTime == false && isAnOrder == true)
+        if (isOnTime == false && isAnOrder == true)
         {
             c.transform.tag = "Unusable";
             scoreManagerHolder.GetComponent<ScoreManager>().Penalty();

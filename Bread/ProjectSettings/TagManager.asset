@@ -11,6 +11,10 @@ TagManager:
   - Container
   - Unusable
   - Ingriedients
+  - Ingriedient
+  - KitchenTop
+  - Finished
+  - ReceptManager
   layers:
   - Default
   - TransparentFX
