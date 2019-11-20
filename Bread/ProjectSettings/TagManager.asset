@@ -15,6 +15,7 @@ TagManager:
   - KitchenTop
   - Finished
   - ReceptManager
+  - EndPoint
   layers:
   - Default
   - TransparentFX

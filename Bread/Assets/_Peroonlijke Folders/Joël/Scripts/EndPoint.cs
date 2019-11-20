@@ -19,6 +19,7 @@ public class EndPoint : MonoBehaviour
             if (order.orderList.Peek().id == other.GetComponent<FinishedProduct>().finished.id)
             {
                 order.TimeChecker();
+                Destroy(other.gameObject);
             }
             else
             {

@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9949db755dcd0b4418395f2d9bee82e3, type: 3}
   m_Name: Tomato
   m_EditorClassIdentifier: 
-  stats:
-    id: 1
+  id: 1
   item: {fileID: 9219268925346292711, guid: 71b10d8b718f7554ba49b904832fa2d1, type: 3}

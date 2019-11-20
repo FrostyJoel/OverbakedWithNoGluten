@@ -10,6 +10,7 @@ public class OrderManager : MonoBehaviour
     public Queue<RecipeBase> orderList = new Queue<RecipeBase>();
     //public List<RecipeBase> RecipeList = new List<RecipeBase>();
 
+    public Collider endPoint;
     public RecipeBase orderData;
     public WorkingTimer orderTimer;
     public FinishedItemBase tempProduct;
@@ -31,6 +32,7 @@ public class OrderManager : MonoBehaviour
     //Sets restart timer.
     public void Start()
     {
+        endPoint = GameObject.FindGameObjectWithTag("EndPoint").GetComponent<SphereCollider>();
         recipes = GetComponent<AllRecipe>();
         intervalRestart = interval;
     }
@@ -41,6 +43,11 @@ public class OrderManager : MonoBehaviour
         if(orderList.Count > 0)
         {
             OrderChecker();
+            endPoint.enabled = true;
+        }
+        else
+        {
+            endPoint.enabled = false;
         }
     }
 

@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9949db755dcd0b4418395f2d9bee82e3, type: 3}
   m_Name: Union
   m_EditorClassIdentifier: 
-  stats:
-    id: 3
+  id: 3
   item: {fileID: 1000011882893550, guid: 48530aab98abaa541acf2cf3f3f06d20, type: 3}
