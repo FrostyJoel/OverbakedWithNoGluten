@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8889702897284202053}
   - component: {fileID: 488566879248859344}
   - component: {fileID: 8307657075070704586}
-  - component: {fileID: 2648298132246903323}
+  - component: {fileID: 1216465804326375121}
   m_Layer: 0
   m_Name: UnionSoup
   m_TagString: Finished
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 6848483747360923498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.4876649, y: 0.91, z: 0.6701537}
-  m_LocalScale: {x: 1, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.25, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -233,17 +233,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finished: {fileID: 11400000, guid: 8d20b2356f61b014686aa539471cc1c1, type: 2}
---- !u!64 &2648298132246903323
-MeshCollider:
+--- !u!114 &1216465804326375121
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6848483747360923498}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783750eec4c41da428b7651515146d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityAverageFrames: 5
+  angularVelocityAverageFrames: 11
+  estimateOnAwake: 0

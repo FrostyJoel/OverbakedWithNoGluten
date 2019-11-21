@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7459226023715337400}
   - component: {fileID: 3148212420070360207}
   - component: {fileID: 8193411763026775880}
+  - component: {fileID: 825344100905203270}
   m_Layer: 0
   m_Name: Tomatoe
   m_TagString: Diceable
@@ -234,3 +235,18 @@ MonoBehaviour:
   diced: {fileID: 5567853167770330249, guid: 317186d6241a15747a6915da0bf10374, type: 3}
   percentage: 0
   maxDice: 100
+--- !u!114 &825344100905203270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146089887781161026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783750eec4c41da428b7651515146d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityAverageFrames: 5
+  angularVelocityAverageFrames: 11
+  estimateOnAwake: 0

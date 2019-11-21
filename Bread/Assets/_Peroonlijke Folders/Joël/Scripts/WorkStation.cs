@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class WorkStation : MonoBehaviour
 {
     public AllRecipe receptManager;
+    public ParticleSystem smoke;
     public GameObject point;
     public GameObject finishedProduct;
     public List<ItemBase> inStation = new List<ItemBase>();
@@ -16,6 +17,7 @@ public class WorkStation : MonoBehaviour
     public float offset;
     public float force;
     public Text stoveAmount;
+    public List<Text> soup = new List<Text>();
     RaycastHit hit;
     [SerializeField]float currentTime;
 
@@ -30,7 +32,6 @@ public class WorkStation : MonoBehaviour
             }
             else
             {
-                Debug.Log("O no");
                 Vector3 endPosition = new Vector3(finishedProduct.transform.position.x, finishedProduct.transform.position.y + offset, finishedProduct.transform.position.z);
                 GameObject wrongItem = Instantiate(inStation[i].item, endPosition, Quaternion.identity);
                 wrongItem.GetComponent<Rigidbody>().velocity += finishedProduct.transform.up * force;
@@ -40,6 +41,7 @@ public class WorkStation : MonoBehaviour
         }
         if (b && inStation.Count == availableRecipe.recipe.Count)
         {
+            smoke.Play();
             cooking = true;
             currentTime = cookingTime;
         }
@@ -50,6 +52,16 @@ public class WorkStation : MonoBehaviour
         if (cooking && currentTime > 0)
         {
             currentTime -= Time.deltaTime;
+        }
+        if(availableRecipe == null)
+        {
+            point.GetComponent<Collider>().enabled = false;
+            point.GetComponent<Renderer>().enabled = true;
+        }
+        else
+        {
+            point.GetComponent<Collider>().enabled = true;
+            point.GetComponent<Renderer>().enabled = false;
         }
         if(cooking || finished)
         {
@@ -68,12 +80,20 @@ public class WorkStation : MonoBehaviour
         }
         if(availableRecipe != null)
         {
-            UpdateUI();
+            stoveAmount.text = inStation.Count.ToString() + "/" + availableRecipe.recipe.Count.ToString();
         }
+        else
+        {
+            stoveAmount.text = "No Recipe Selected";
+        }
+        UpdateUI();
     }
 
     public void UpdateUI()
     {
-        stoveAmount.text = inStation.Count.ToString() + "/" + availableRecipe.recipe.Count.ToString();
+        foreach (Text buttonText in soup)
+        {
+            buttonText.text = buttonText.GetComponentInParent<WorkStationButton>().recept.name;
+        }
     }
 }

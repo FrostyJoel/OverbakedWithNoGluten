@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InsertPoint : MonoBehaviour
 {
+    public Collider nonTrigger;
     [SerializeField]WorkStation parentWorkstation;
     private void Start()
     {
@@ -16,6 +17,18 @@ public class InsertPoint : MonoBehaviour
             parentWorkstation.inStation.Add(other.GetComponent<Item>().currentItem);
             parentWorkstation.CheckRecipe();
             Destroy(other.gameObject);
+        }
+    }
+    private void Update()
+    {
+        MeshRenderer mesh = GetComponent<MeshRenderer>();
+        if (mesh.enabled == true)
+        {
+            nonTrigger.enabled = true;
+        }
+        else
+        {
+            nonTrigger.enabled = false;
         }
     }
 }

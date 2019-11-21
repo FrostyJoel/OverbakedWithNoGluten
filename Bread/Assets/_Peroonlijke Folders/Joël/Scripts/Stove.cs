@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Stove : WorkStation
 {
-    private void Start()
+    public void ChangeRecipe(RecipeBase recept)
     {
-        
+        availableRecipe = recept;
     }
 }

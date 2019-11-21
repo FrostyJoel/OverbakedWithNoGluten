@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5567853167770330252}
   - component: {fileID: 5567853167770330255}
   - component: {fileID: 5567853167770330254}
+  - component: {fileID: 6234699708443270273}
   m_Layer: 9
   m_Name: SlicedTomato's
   m_TagString: Ingriedients
@@ -159,6 +160,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
+--- !u!114 &6234699708443270273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5567853167770330249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8418a3640b6dcb94681e6fb09158d902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentItem: {fileID: 0}
+  slices:
+  - {fileID: 3653985867440313781}
+  - {fileID: 7771605047247308783}
+  - {fileID: 1540513488141506130}
+  - {fileID: 6815433186814293280}
 --- !u!1001 &1453296676966966280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,6 +247,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71b10d8b718f7554ba49b904832fa2d1, type: 3}
+--- !u!1 &7771605047247308783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9219268925346292711, guid: 71b10d8b718f7554ba49b904832fa2d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1453296676966966280}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7771605047247308772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9219268925346292716, guid: 71b10d8b718f7554ba49b904832fa2d1,
@@ -303,6 +328,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71b10d8b718f7554ba49b904832fa2d1, type: 3}
+--- !u!1 &6815433186814293280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9219268925346292711, guid: 71b10d8b718f7554ba49b904832fa2d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2406088105362282183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6815433186814293291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9219268925346292716, guid: 71b10d8b718f7554ba49b904832fa2d1,
@@ -376,8 +407,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9219268925346292706, guid: 71b10d8b718f7554ba49b904832fa2d1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9e77d6afdb491545bdee25c3919806b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71b10d8b718f7554ba49b904832fa2d1, type: 3}
+--- !u!1 &3653985867440313781 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9219268925346292711, guid: 71b10d8b718f7554ba49b904832fa2d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5567853166437070418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3653985867440313790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9219268925346292716, guid: 71b10d8b718f7554ba49b904832fa2d1,
@@ -453,6 +495,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71b10d8b718f7554ba49b904832fa2d1, type: 3}
+--- !u!1 &1540513488141506130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9219268925346292711, guid: 71b10d8b718f7554ba49b904832fa2d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7678757103662495157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1540513488141506137 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9219268925346292716, guid: 71b10d8b718f7554ba49b904832fa2d1,

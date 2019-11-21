@@ -20,7 +20,7 @@ public class OrderManager : MonoBehaviour
     public int orderSlots = 6;
     public float interval = 1f;
     public float intervalRestart;
-
+    public float score = 0;
     public float maximumMinusTime;
     //test
     public float reset;
@@ -110,7 +110,7 @@ public class OrderManager : MonoBehaviour
     {
         if (timer > 0)
         {
-            //Add Score
+            
         }
         if (timer < 0)
         {

@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public Text time;
     public Text order;
+    public Text score;
     public OrderManager orderMan;
     private void Start()
     {
@@ -15,7 +16,8 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time.text = "Time Left: "; //Add TimeLeft
+        time.text = "Time Left:" + "\n"+ Mathf.RoundToInt(orderMan.timer).ToString(); //Add TimeLeft
+        score.text = "Score:" + "\n" + orderMan.score.ToString(); // Add Score
         if(orderMan.orderList.Count > 0)
         {
             order.text = "Next Order: " + "\n" + orderMan.orderList.Peek().name.ToString();
