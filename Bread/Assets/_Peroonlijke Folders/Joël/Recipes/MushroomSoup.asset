@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06bbb21d0bcc1454abdd89cad7466951, type: 3}
   m_Name: MushroomSoup
   m_EditorClassIdentifier: 
-  recipe: []
-  finalProduct: {fileID: 0}
+  recipe:
+  - {fileID: 11400000, guid: 677cb14c96429f44f8fe25e12c1b55e4, type: 2}
+  - {fileID: 11400000, guid: 677cb14c96429f44f8fe25e12c1b55e4, type: 2}
+  - {fileID: 11400000, guid: 677cb14c96429f44f8fe25e12c1b55e4, type: 2}
+  - {fileID: 11400000, guid: 677cb14c96429f44f8fe25e12c1b55e4, type: 2}
+  - {fileID: 11400000, guid: 677cb14c96429f44f8fe25e12c1b55e4, type: 2}
+  finalProduct: {fileID: 11400000, guid: 60e26c07401239d4a8bdecf9edf579bc, type: 2}
   id: 3
-  orderTime: 25
+  orderTime: 30
+  score: 30

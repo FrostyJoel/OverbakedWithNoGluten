@@ -9,4 +9,5 @@ public class RecipeBase : ScriptableObject
     public FinishedItemBase finalProduct;
     public int id;
     public float orderTime;
+    public float score;
 }

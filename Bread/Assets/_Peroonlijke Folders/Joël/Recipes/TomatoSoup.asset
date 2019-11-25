@@ -20,3 +20,4 @@ MonoBehaviour:
   finalProduct: {fileID: 11400000, guid: 8d0b3219bd1c34849956d0dad1fc2f93, type: 2}
   id: 1
   orderTime: 25
+  score: 40

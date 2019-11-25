@@ -1148,19 +1148,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3988370736239025369}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4277348653374903217}
-        m_MethodName: ChangeRecipe
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 8d20b2356f61b014686aa539471cc1c1,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: RecipeBase, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &8116999690300050223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1173,7 +1161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f48f2f431bd4a41ae43d6eb8fb7953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recept: {fileID: 11400000, guid: 8d20b2356f61b014686aa539471cc1c1, type: 2}
+  recept: {fileID: 11400000, guid: c8761094e01648a428d974f8b8dd32cd, type: 2}
 --- !u!65 &7706254053197942868
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1258,7 +1246,7 @@ MonoBehaviour:
         m_MethodName: ChangeRecipe
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 8d20b2356f61b014686aa539471cc1c1,
+          m_ObjectArgument: {fileID: 11400000, guid: c8761094e01648a428d974f8b8dd32cd,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: RecipeBase, Assembly-CSharp
           m_IntArgument: 0
@@ -1387,19 +1375,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7229359803513819702}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4277348653374903217}
-        m_MethodName: ChangeRecipe
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 8d20b2356f61b014686aa539471cc1c1,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: RecipeBase, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &4616972646051551833
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -60,6 +60,11 @@ public class OrderManager : MonoBehaviour
             //put some visual and audio feedback in here as well later on.
         }
         orderList.Enqueue(orderData);
+        if(orderTime <= 0)
+        {
+            orderTime = orderList.Peek().orderTime;
+            timer = orderTime;
+        }
         Debug.Log(orderList.Count());
         Debug.Log(orderList.Last());
         //Debug.Log("Script: OrderList, Method: AddOrder, Log: Data Added to order list");
@@ -69,6 +74,16 @@ public class OrderManager : MonoBehaviour
     {
         Debug.Log("Correct Item");
         orderList.Dequeue();
+        if(orderList.Count > 0)
+        {
+            orderTime = orderList.Peek().orderTime;
+            timer = orderTime;
+        }
+        else
+        {
+            timer = 0;
+            orderTime = 0;
+        }
         //Debug.Log("Script: OrderList, Method: RemoveOrder Log: Data removed from order list.");
     }
 
@@ -98,24 +113,19 @@ public class OrderManager : MonoBehaviour
 
     public void OrderChecker()
     {
-        if (orderList.Count > 0)
+        if(timer > 0)
         {
-            if(timer > maximumMinusTime)
-            {
-                timer -= Time.deltaTime;
-            }
+            timer -= Time.deltaTime;
         }
+        if(timer <= 0 && score > 0)
+        {
+            score -= Time.deltaTime;
+        }
+
     }
-    public void TimeChecker()
+    public void TimeChecker(RecipeBase recept)
     {
-        if (timer > 0)
-        {
-            
-        }
-        if (timer < 0)
-        {
-            //Remove points
-        }
+        score += recept.score;
         RemoveOrder();
     }
 }
